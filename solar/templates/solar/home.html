@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block title %}Página Inicial{% endblock %}
+
+{% block content %}
+    <h1>Bem-vindo ao CRM de Energia Solar</h1>
+    <p>Selecione uma opção:</p>
+    <ul>
+        <li><a href="{% url 'lista_clientes' %}">Lista de Clientes</a></li>
+        <li><a href="{% url 'lista_projetos' %}">Lista de Projetos</a></li>
+    </ul>
+{% endblock %}

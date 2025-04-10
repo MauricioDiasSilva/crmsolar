@@ -3,24 +3,80 @@
 <head>
     <title>{% block title %}CRM Energia Solar{% endblock %}</title>
     {% load static %}
+
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </head>
 <body>
-    <nav>
-        <ul>
-            <li><a href="{% url 'home' %}">Início</a></li>
-            <li><a href="{% url 'lista_clientes' %}">Clientes</a></li>
-            <li><a href="{% url 'lista_projetos' %}">Projetos</a></li>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="{% url 'home' %}">
+        <img src="{% static 'images/solar-logo.png' %}" alt="Logo Energia Solar" style="height: 40px; margin-right: 15px;">
+        CRM Energia Solar
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="{% url 'home' %}">Início <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'lista_clientes' %}">Clientes</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'lista_projetos' %}">Projetos</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Contato</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link btn btn-primary text-white" href="#">Login</a>
+            </li>
         </ul>
-    </nav>
+    </div>
+</nav>
 
     <div class="content">
         {% block content %}{% endblock %}
     </div>
 
-    <footer>
-        <p>&copy; {% now "Y" %} CRM Energia Solar</p>
-    </footer>
+  <footer class="bg-light py-4 mt-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <h5>Sobre Nós</h5>
+                <p>Somos uma empresa líder em soluções de energia solar, comprometidos com um futuro sustentável.</p>
+            </div>
+            <div class="col-md-3">
+                <h5>Serviços</h5>
+                <ul class="list-unstyled">
+                    <li><a href="#">Instalação de Painéis Solares</a></li>
+                    <li><a href="#">Manutenção e Suporte</a></li>
+                    <li><a href="#">Consultoria em Energia Solar</a></li>
+                </ul>
+            </div>
+            <div class="col-md-3">
+                <h5>Contato</h5>
+                <p>Email: contato@energiasolar.com</p>
+                <p>Telefone: (11) 1234-5678</p>
+            </div>
+            <div class="col-md-3">
+                <h5>Redes Sociais</h5>
+                <div class="d-flex">
+                    <a href="#" class="mr-2"><img src="{% static 'images/facebook-icon.png' %}" alt="Facebook" style="height: 30px;"></a>
+                    <a href="#"><img src="{% static 'images/linkedin-icon.png' %}" alt="LinkedIn" style="height: 30px;"></a>
+                </div>
+            </div>
+        </div>
+        <div class="text-center mt-3">
+            <p>&copy; {% now "Y" %} CRM Energia Solar | <a href="#">Termos de Uso</a> | <a href="#">Política de Privacidade</a></p>
+        </div>
+    </div>
+</footer>
 
     <script src="{% static 'js/script.js' %}"></script>
 </body>

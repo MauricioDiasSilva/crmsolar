@@ -14,3 +14,4 @@ urlpatterns = [
     path('projetos/criar/', views.criar_projeto, name='criar_projeto'),
     path('projetos/editar/<int:projeto_id>/', views.editar_projeto, name='editar_projeto'),
 ]
+
